@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 280" fill="none" role="img" aria-labelledby="mascot-title">
+  <title id="mascot-title">抱着词书的黄色小恐龙</title>
+  <defs>
+    <linearGradient id="yellow" x1="87" y1="37" x2="173" y2="244" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFDD72"/>
+      <stop offset="1" stop-color="#F1C454"/>
+    </linearGradient>
+    <linearGradient id="book" x1="84" y1="174" x2="179" y2="226" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#426851"/>
+      <stop offset="1" stop-color="#294B3C"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="132" cy="253" rx="82" ry="11" fill="#315344" opacity=".09"/>
+  <g stroke="#A57B35" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M178 207c26 2 43-14 49-31 17 23 7 49-14 56-11 4-23 2-34-2" fill="#EDC258"/>
+    <path d="m221 192 10-7 4 11-10 4M216 208l13-1-2 11-12-1" fill="#D6AD47" stroke="none"/>
+    <path d="M91 135c-19 17-29 47-24 76 5 29 24 40 62 40 39 0 61-14 65-43 4-28-6-54-27-72" fill="url(#yellow)"/>
+    <path d="M103 153c-18 13-24 36-19 59 4 21 19 31 45 31 27 0 41-12 44-32 4-22-4-46-22-58" fill="#FFF2C7" stroke="none"/>
+    <path d="M72 233c-8 0-18 7-18 14 0 8 16 12 32 9 12-2 17-9 13-15-4-6-17-9-27-8Z" fill="#F4CB5F"/>
+    <path d="M170 234c10-1 22 5 25 12 3 8-10 13-26 12-14-1-21-6-19-13 2-6 12-10 20-11Z" fill="#F4CB5F"/>
+    <path d="m66 249 2-4m9 6 1-4m100 5-2-4m10 1-2-4" stroke="#C69C43" stroke-width="1.8"/>
+    <path d="M59 79c-3-27 16-48 43-51 20-7 44-3 60 8 15 8 24 19 29 30 19 6 29 24 26 44-3 26-28 44-63 45l-47-1c-30-1-49-16-52-38-3-14-1-26 4-37Z" fill="url(#yellow)"/>
+    <path d="M75 52c7-10 18-15 31-16" stroke="#FFEAA1" stroke-width="6"/>
+    <path d="M155 56c8-1 14 1 19 5M88 57c6-4 13-5 20-3" stroke="#B1883C" stroke-width="2.8"/>
+    <ellipse cx="101" cy="82" rx="18" ry="24" fill="#FFFCED" stroke-width="2.1"/>
+    <ellipse cx="159" cy="82" rx="17" ry="23" fill="#FFFCED" stroke-width="2.1"/>
+    <ellipse cx="106" cy="87" rx="10" ry="14" fill="#6B864B" stroke="none"/>
+    <ellipse cx="156" cy="87" rx="10" ry="14" fill="#6B864B" stroke="none"/>
+    <ellipse cx="108" cy="89" rx="5.7" ry="9" fill="#2D4634" stroke="none"/>
+    <ellipse cx="154" cy="89" rx="5.7" ry="9" fill="#2D4634" stroke="none"/>
+    <circle cx="110" cy="82" r="3.7" fill="white" stroke="none"/>
+    <circle cx="157" cy="82" r="3.7" fill="white" stroke="none"/>
+    <path d="M116 108c19-9 49-9 68 1 10 5 13 13 8 20-7 11-27 16-47 13" fill="#F9D166" stroke="none"/>
+    <ellipse cx="139" cy="111" rx="2.7" ry="3.4" fill="#AA853F" stroke="none"/>
+    <ellipse cx="166" cy="110" rx="2.7" ry="3.4" fill="#AA853F" stroke="none"/>
+    <path d="M119 127c10 13 29 15 42 3" stroke="#916C31" stroke-width="2.6"/>
+    <path d="m118 126-1 5m46-3 1 4" stroke="#BD9447" stroke-width="1.8"/>
+    <ellipse cx="78" cy="114" rx="11" ry="5" fill="#EDA46C" opacity=".52" stroke="none"/>
+    <ellipse cx="191" cy="117" rx="9" ry="4.5" fill="#EDA46C" opacity=".42" stroke="none"/>
+  </g>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M81 174c17-9 34-8 51 1 16-9 33-10 50-1l-6 52c-16-6-30-5-44 3-15-8-31-9-46-3Z" fill="#244336" stroke="#244336" stroke-width="3"/>
+    <path d="M84 171c16-6 31-5 48 4 15-8 31-10 47-3l-5 49c-15-5-28-3-42 5-14-8-29-10-44-5Z" fill="#F2EDD7" stroke="#D2D5BD" stroke-width="1.5"/>
+    <path d="M85 177c16-5 30-3 47 5 16-8 29-10 46-5l-5 47c-14-4-27-1-41 7-15-8-29-11-43-7Z" fill="url(#book)"/>
+    <path d="M132 182v49" stroke="#78917B" stroke-width="1.4"/>
+    <path d="m98 188 22 5m-21 4 21 5m-20 4 20 5m24-18 20-5m-20 14 20-5m-20 14 18-5" stroke="#B3C2A1" stroke-width="1.8"/>
+    <path d="M124 179v14l4-2 4 5v-14" fill="#E8C465"/>
+    <path d="M74 167c-10 3-14 12-10 21 4 9 13 13 23 13 7 0 11-4 9-9-1-4-7-7-13-7 5-7 3-17-9-18Z" fill="#F6CF64" stroke="#A57B35" stroke-width="2.6"/>
+    <path d="M187 167c11 2 15 11 12 21-3 9-13 13-22 13-6 0-9-4-7-9 1-4 6-7 12-7-6-7-5-15 5-18Z" fill="#F6CF64" stroke="#A57B35" stroke-width="2.6"/>
+    <path d="m79 190 6 3m96 0 5-3" stroke="#D4A74C" stroke-width="1.7"/>
+  </g>
+</svg>

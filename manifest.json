@@ -1,0 +1,17 @@
+{
+  "name": "TOP 背单词",
+  "short_name": "TOP",
+  "description": "每天一点，词有所得。支持认词、听写、拼写与阶段复习。",
+  "id": "./",
+  "scope": "./",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f7f7f2",
+  "theme_color": "#315344",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

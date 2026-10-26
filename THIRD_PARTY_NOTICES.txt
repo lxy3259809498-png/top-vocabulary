@@ -1,0 +1,37 @@
+TOP 背单词 — 第三方说明
+
+词库
+本项目沿用原项目基于 ECDICT 整理的词库 data/words.json。
+上游项目：https://github.com/skywind3000/ECDICT
+上游许可：https://github.com/skywind3000/ECDICT/blob/ab22ad36302cafc6349a050e2b60894855208055/LICENSE
+许可原文获取地址：https://cdn.jsdelivr.net/gh/skywind3000/ECDICT@ab22ad36302cafc6349a050e2b60894855208055/LICENSE
+获取日期：2026-10-26
+
+以下保留上游 LICENSE 原文：
+MIT License
+
+Copyright (c) 2025 Linwei
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+其他资源
+本项目的黄色小恐龙装饰和 TOP 图标为本地原创 SVG／绘制资源。
+备用在线发音由用户发音操作请求有道在线语音服务；在线音频不打包再分发。
+本项目不是墨墨背单词或其他相关品牌的官方产品。

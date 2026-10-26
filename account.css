@@ -1,0 +1,227 @@
+/* ============================================================
+   账号与同步 —— 沿用站点既有设计变量
+   墨绿 #315344 / 米白 #f7f7f2 / 圆角 14-20px / 触控目标 ≥ 44px
+   ============================================================ */
+
+/* ---------- 设置页：账号卡片 ---------- */
+#accountPanel .setting-description { margin-bottom: 16px; }
+
+.account-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 17px;
+  background: #f5f7ee;
+  border: 1px solid #e3e8da;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.account-avatar {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fcfff6;
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: .5px;
+}
+
+.account-info { min-width: 0; flex: 1; }
+
+.account-name {
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-email {
+  font-size: 11px;
+  color: #718365;
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-since { font-size: 10px; color: #8b987c; margin-top: 5px; }
+
+/* 密码修改区 */
+.pwd-row {
+  margin-top: 19px;
+  padding-top: 17px;
+  border-top: 1px solid #e5ebdb;
+}
+.pwd-row .field-label { display: block; }
+.pwd-row input {
+  width: 100%;
+  height: 42px;
+  padding: 0 13px;
+  margin-bottom: 13px;
+  background: #f6f8f0;
+  border: 1px solid #dde4d3;
+  border-radius: 9px;
+  font-size: 13px;
+  color: var(--ink);
+  outline: 0;
+}
+.pwd-row input:focus {
+  border-color: #9fb68c;
+  box-shadow: 0 0 0 3px #3153440f;
+}
+.pwd-row .secondary-button { margin-top: 2px; }
+
+/* 危险操作：低调但可点 */
+.danger-link {
+  display: block;
+  margin-top: 15px;
+  padding: 7px 0;
+  color: #a85a4a;
+  font-size: 11px;
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: .8;
+}
+.danger-link:hover { opacity: 1; color: #8f4436; }
+
+/* 状态行 */
+#accountStatus { min-height: 17px; }
+#accountStatus.is-error { color: #b65c4e; }
+
+/* 后端不可达时的说明 */
+.account-offline {
+  margin-top: 12px;
+  padding: 11px 13px;
+  background: #f7f8f1;
+  border-radius: 9px;
+  line-height: 1.8;
+}
+
+/* ---------- 登录弹窗 ---------- */
+#authDialog {
+  border: 1px solid #d9e4cd;
+  background: var(--card);
+  color: var(--text);
+  border-radius: 21px;
+  width: min(calc(100% - 40px), 430px);
+  padding: 34px 30px 26px;
+  max-height: 88dvh;
+  overflow-y: auto;
+}
+#authDialog::backdrop { background: #263c3259; }
+#authDialog[open] { animation: auth-in .22s ease both; }
+@keyframes auth-in {
+  from { opacity: 0; transform: translateY(10px) scale(.985); }
+  to { opacity: 1; transform: none; }
+}
+
+.auth-head { text-align: center; margin-bottom: 24px; }
+
+.auth-mark {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px;
+  border-radius: 17px;
+  background: var(--accent);
+  color: #fffef6;
+  font: 42px Georgia, serif;
+  line-height: 1;
+  padding-bottom: 7px;
+}
+
+#authTitle { font-size: 20px; font-weight: 650; margin: 0 0 7px; line-height: 1.4; }
+#authSubtitle { font-size: 12px; color: #75876a; margin: 0; line-height: 1.7; }
+
+#authForm .field-label { margin-top: 15px; }
+#authForm .field-label:first-of-type { margin-top: 0; }
+
+#authForm input[type=text],
+#authForm input[type=email],
+#authForm input[type=password] {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  background: #f6f8f0;
+  border: 1px solid #dde4d3;
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--ink);
+  outline: 0;
+  transition: border-color .15s, box-shadow .15s;
+}
+#authForm input:focus {
+  border-color: #9fb68c;
+  box-shadow: 0 0 0 3px #3153440f;
+}
+#authForm input::placeholder { color: #9aa88f; }
+
+#authSubmit { margin-top: 22px; min-height: 48px; }
+#authSubmit:disabled { opacity: .6; cursor: wait; }
+
+.auth-status {
+  min-height: 18px;
+  margin: 11px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #a85a4a;
+  text-align: center;
+}
+
+.auth-switch {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px 0;
+  min-height: 42px;
+  background: transparent;
+  color: #5f7952;
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.auth-switch:hover { color: #294c37; }
+
+.auth-note {
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  background: #f7f8f1;
+  border-radius: 9px;
+  font-size: 10px;
+  line-height: 1.9;
+  color: #83917a;
+}
+
+/* ---------- 移动端 ---------- */
+@media (max-width: 700px) {
+  #accountPanel .backup-actions .secondary-button { flex: 1; }
+  .account-avatar { width: 42px; height: 42px; font-size: 17px; }
+  .account-name { font-size: 14px; }
+  #authDialog {
+    padding: 28px 22px calc(22px + var(--safe-bottom));
+    border-radius: 20px;
+    width: calc(100% - 32px);
+  }
+  #authDialog input[type=text],
+  #authDialog input[type=email],
+  #authDialog input[type=password] { height: 48px; font-size: 15px; }
+  #authSubmit { min-height: 50px; font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #authDialog[open] { animation: none; }
+}
+
+/* 深色模式下的对比度兜底（若将来加入 data-theme） */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme=light]) #authDialog input { color-scheme: light; }
+}

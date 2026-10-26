@@ -932,6 +932,21 @@
     about: function () { $('drAbout').click(); },
     refresh: renderHome,
     flush: flushProg,
+    // 账号同步用：把 localStorage 里的进度重新读进内存，并让顺序缓存失效。
+    // 云端合并进度、或登录后换了账号种子时调用。
+    reloadFromStorage: function () {
+      cancelPendingCheck();
+      if (saveTimer) clearTimeout(saveTimer);
+      saveTimer = null;
+      PROG = JSON.parse(localStorage.getItem('top.prog') || '{}') || {};
+      // 用 loadCfg 逐字段合并，保留默认值；直接替换 JSON 会丢掉未存的字段
+      loadCfg();
+      ORDER_CACHE = {};
+      loadSeed();
+      loadToday();
+      renderHome();
+      notify('top:change');
+    },
     reloadAfterRestore: function () {
       cancelPendingCheck();
       if (saveTimer) clearTimeout(saveTimer);

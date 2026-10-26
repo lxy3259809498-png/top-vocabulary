@@ -1,7 +1,7 @@
 'use strict';
 
 const CACHE_PREFIX = 'top-static-';
-const CACHE_NAME = CACHE_PREFIX + '20261026-v4';
+const CACHE_NAME = CACHE_PREFIX + '20261027-v5';
 const ROOT_URL = new URL('./', self.location.href).href;
 const INDEX_URL = new URL('index.html', ROOT_URL).href;
 const STATIC_URLS = [

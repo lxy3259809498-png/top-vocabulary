@@ -22,6 +22,7 @@
   var ORDER_CACHE = {};          // book + ':' + order -> 索引数组
   var pendingCheck = null;
   var speakTimer = null;
+  var SEED = '';                 // 本设备私有的单词顺序种子（每人各不相同）
 
   var $ = function (id) { return document.getElementById(id); };
 
@@ -77,6 +78,37 @@
     saveProg();
 
     return { stage: p.stage, days: days, requeue: requeue };
+  }
+
+  /* ---------- 每台设备独有的顺序种子 ---------- */
+  // 每人第一次打开时生成一个随机种子并存在本机，之后的乱序都从它派生，
+  // 所以「我」的乱序和别人不同，但「我」自己刷新、换书回来都不变。
+  function newSeed() {
+    var bytes = null;
+    try {
+      if (typeof crypto !== 'undefined' && crypto.getRandomValues) {
+        bytes = new Uint8Array(16);
+        crypto.getRandomValues(bytes);
+      }
+    } catch (e) { bytes = null; }
+    var out = '';
+    if (bytes) {
+      for (var i = 0; i < bytes.length; i++) out += ('0' + bytes[i].toString(16)).slice(-2);
+    } else {
+      for (var j = 0; j < 4; j++) out += ('0000000' + Math.floor(Math.random() * 0x100000000).toString(16)).slice(-8);
+    }
+    return out + Date.now().toString(36);
+  }
+
+  function loadSeed() {
+    var saved = '';
+    try { saved = localStorage.getItem('top.seed') || ''; } catch (e) { saved = ''; }
+    if (!/^[0-9a-z]{16,}$/.test(saved)) {
+      saved = newSeed();
+      try { localStorage.setItem('top.seed', saved); }
+      catch (e) { storageError(); }
+    }
+    SEED = saved;
   }
 
   /* ---------- storage ---------- */
@@ -293,7 +325,8 @@
   }
 
   /* ---------- 顺序 / 乱序 ---------- */
-  // 用书名为种子的确定性洗牌，保证同一本书每次顺序一致、不同书顺序不同
+  // 用「本书名 + 本设备种子」作为洗牌输入：
+  // 同一个人同一本书每次顺序一致，不同设备（不同人）顺序不同。
   function seededShuffle(arr, seedStr) {
     var seed = 2166136261;
     for (var i = 0; i < seedStr.length; i++) {
@@ -323,7 +356,7 @@
     if (!wantShuffle) return raw;
     var key = bookKey + ':1';
     if (!ORDER_CACHE[key]) {
-      ORDER_CACHE[key] = seededShuffle(raw, 'top-' + bookKey);
+      ORDER_CACHE[key] = seededShuffle(raw, 'top-' + bookKey + '-' + SEED);
     }
     return ORDER_CACHE[key];
   }
@@ -912,6 +945,7 @@
   var started = Date.now();
 
   function boot() {
+    loadSeed();
     loadCfg();
     loadProg();
     loadToday();

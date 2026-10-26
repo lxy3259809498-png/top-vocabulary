@@ -24,7 +24,7 @@
     { key: 'zk', title: '中考英语', name: '从基础词汇开始', group: 'other', tag: '基础词汇', color: '#c7d6ba', deep: '#a4bb92', cover: '初' },
     { key: 'all', title: '全部单词', name: '把更大的世界装进词库', group: 'other', tag: '综合词库', color: '#bbc9bd', deep: '#8da48f', cover: 'A' }
   ];
-  var BACKUP_KEYS = ['top.cfg', 'top.prog', 'top.today', 'top.hist', 'top.sign', 'top.favorites', 'top.session'];
+  var BACKUP_KEYS = ['top.cfg', 'top.prog', 'top.today', 'top.hist', 'top.sign', 'top.favorites', 'top.session', 'top.seed'];
   function escapeHTML(value) {
     return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
@@ -224,6 +224,11 @@
       'top.sign': state.sign, 'top.favorites': Array.from(favorites),
       'top.today': { day: localDay(), n: state.todayDone }
     };
+    // 顺序种子跟着备份走，换设备恢复后仍是自己那套独一无二的乱序。
+    try {
+      var seed = localStorage.getItem('top.seed');
+      if (seed) data['top.seed'] = seed;
+    } catch (e) { /* 读不到种子时只导出长期记录。 */ }
     try {
       var session = localStorage.getItem('top.session');
       if (session) data['top.session'] = JSON.parse(session);
@@ -276,6 +281,8 @@
     if (!object(sign) || (sign.last !== '' && !dateKey(sign.last)) || !['streak', 'points', 'total'].every(function (key) { return count(sign[key]); }) || !object(sign.days) ||
         Object.keys(sign.days).some(function (key) { return !dateKey(key) || !object(sign.days[key]) || !count(sign.days[key].streak) || !count(sign.days[key].pts); })) throw new Error('备份中的签到记录无效。');
     if (!Array.isArray(saved['top.favorites']) || !saved['top.favorites'].every(validWord)) throw new Error('备份中的收藏记录无效。');
+    var seed = saved['top.seed'];
+    if (seed !== undefined && (typeof seed !== 'string' || !/^[0-9a-z]{16,}$/.test(seed))) throw new Error('备份中的顺序种子无效。');
     var session = saved['top.session'];
     var sessionWords = session && validBook(session.book) && session.book !== 'all' ? new Set(data.books[session.book]) : null;
     if (session !== undefined && (!object(session) || !dateKey(session.day) || !validBook(session.book) || [0, 1, 2].indexOf(session.mode) < 0 ||
@@ -296,6 +303,8 @@
       try {
         BACKUP_KEYS.forEach(function (key) {
           if (saved[key] === undefined) localStorage.removeItem(key);
+          // top.seed 存的是裸字符串，其余键存 JSON。
+          else if (key === 'top.seed') localStorage.setItem(key, saved[key]);
           else localStorage.setItem(key, JSON.stringify(saved[key]));
         });
       } catch (error) {

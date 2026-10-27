@@ -1,12 +1,13 @@
 'use strict';
 
 const CACHE_PREFIX = 'top-static-';
-const CACHE_NAME = CACHE_PREFIX + '20261027-v6';
+const CACHE_NAME = CACHE_PREFIX + '20261027-v7';
 const ROOT_URL = new URL('./', self.location.href).href;
 const INDEX_URL = new URL('index.html', ROOT_URL).href;
 const STATIC_URLS = [
   'index.html', 'styles.css', 'app.js', 'ui.js', 'memory-curve.js', 'data/words.json',
   'account.js', 'account.css',
+  'qr-transfer.js', 'qr-transfer-ui.js', 'qr-transfer.css', 'vendor/qrcode-generator.js',
   'manifest.json', 'favicon.png', 'icon-180.png', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png',
   'assets/mascot.svg', 'assets/mascot-icon.svg',
   'install.html', 'assets/install.css', 'THIRD_PARTY_NOTICES.txt'
